@@ -1,7 +1,7 @@
 export function formatPrice(cents) {
   return (cents / 100).toLocaleString("en-US", {
     style: "currency",
-    currency: "USD"
+    currency: "USD",
   });
 }
 
@@ -13,11 +13,11 @@ export function slugify(text) {
   return text
     .toString()
     .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+    .replace(/--+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 }
 
 export function getFunName() {
@@ -57,7 +57,7 @@ export function getFunName() {
     "scary",
     "thoughtless",
     "uptight",
-    "worried"
+    "worried",
   ];
 
   const nouns = [
@@ -90,7 +90,7 @@ export function getFunName() {
     "crises",
     "phenomena",
     "criteria",
-    "data"
+    "data",
   ];
 
   return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;
