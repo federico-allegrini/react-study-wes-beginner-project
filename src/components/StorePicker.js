@@ -1,5 +1,5 @@
 import React from "react";
-import { getFunName } from "../helpers";
+import { getFunName, slugify } from "../helpers";
 
 class StorePicker extends React.Component {
   // constructor() {
@@ -11,8 +11,9 @@ class StorePicker extends React.Component {
   goToStore(e) {
     e.preventDefault();
     // First grab the text from the box
-    console.log(this.storeInput.value);
+    const storeId = slugify(this.storeInput.value);
     // Second we're going to transition from / to /store/:storeId
+    this.props.history.push(`/store/${storeId}`);
   }
 
   render() {
